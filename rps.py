@@ -2,6 +2,8 @@ import sys
 import random
 from enum import Enum
 
+game_count = 0
+
 def play_rps() :
 
     class RPS(Enum):
@@ -22,17 +24,25 @@ def play_rps() :
     print('\nYour choice: ' + str(RPS(user_choice)).replace('RPS.', '') + '.\n')
     print('Computer choice: ' + str(RPS(computer_input)).replace('RPS.', '') + '.\n')
 
-    if user_choice == computer_input:
-        print('It\'s a tie!')
-    elif user_choice == 1 and computer_input == 3:
-        print('You win! ROCK beats SCISSORS.')
-    elif user_choice == 2 and computer_input == 1:
-        print('You win! PAPER beats ROCK.')
-    elif user_choice == 3 and computer_input == 2:
-        print('You win! SCISSORS beats PAPER.')
-    else:
-        print('You lose! Better luck next time.')
+    def decide_winner(user_choice, computer_input):
+        if user_choice == computer_input:
+            return'It\'s a tie!'
+        elif user_choice == 1 and computer_input == 3:
+            return'You win! ROCK beats SCISSORS.'
+        elif user_choice == 2 and computer_input == 1:
+            return'You win! PAPER beats ROCK.'
+        elif user_choice == 3 and computer_input == 2:
+            return'You win! SCISSORS beats PAPER.'
+        else:
+            return'You lose! Better luck next time.'
+    
+    game_result = decide_winner(user_choice, computer_input)
+    print(game_result)
 
+    global game_count
+    game_count += 1
+
+    print(f"\nGames played: {game_count}")
     print("\nPlay again?")
 
     while True:
