@@ -7,7 +7,7 @@ def play_game(name="Player1"):
 
     while True:
         if welcome_back == True:
-           print(f"\nWelcome back to the menu.")
+           print("\nWelcome back to the menu.")
 
         player_choice = input(f"\n{name}, please choose a game to play: \n1. Rock Paper Scissors \n2. Guess My Number \nX. Exit \n\n")
 
